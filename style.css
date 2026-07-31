@@ -981,6 +981,11 @@ p {
 
   .promo-card {
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .promo-card img {
+    height: auto;
   }
 
   .promo-copy h3 {
@@ -1002,6 +1007,7 @@ p {
   .eyebrow,
   .footer-title {
     letter-spacing: 0.14em;
+    color: #d9c0a7;
   }
 
   .button {
