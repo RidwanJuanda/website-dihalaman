@@ -1,0 +1,15 @@
+Konsep Website:
+Style: Modern, Warm, Natural, Minimalis
+Warna utama:
+Cream (#F7F3ED)
+Coffee Brown (#4E342E)
+Dark Charcoal (#2C2C2C)
+Olive Green (#7A8F63)
+Banyak elemen kayu, tanaman hijau, dan pencahayaan
+ hangat agar terasa seperti halaman rumah yang nyaman.
+
+ cara menjalankan website di localhost
+1. Buka terminal
+2. ketik ini: python3 -m http.server 8000
+3. enter
+4. buka browser dan ketik alamat: [IP_ADDRESS]
