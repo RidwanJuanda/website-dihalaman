@@ -14,7 +14,7 @@
   --radius-lg: 24px;
   --radius-md: 18px;
   --radius-pill: 999px;
-  --container: min(1120px, calc(100% - 48px));
+  --container: min(1120px, calc(100% - 28px));
 }
 
 *,
@@ -60,7 +60,7 @@ button {
 }
 
 .section {
-  padding: 88px 0;
+  padding: 48px 0;
 }
 
 .section-label,
@@ -88,7 +88,7 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-size: clamp(2.5rem, 4vw, 1.8rem);
 }
 
 h3 {
@@ -100,7 +100,7 @@ p {
 }
 
 .section-heading {
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 
 .section-heading.centered {
@@ -143,6 +143,10 @@ p {
   border-color: rgba(255, 253, 250, 0.45);
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
+}
+
+.button-outline:hover {
+  color: #7b563d;
 }
 
 .button-soft {
@@ -285,7 +289,10 @@ p {
   transition: color 180ms ease, opacity 180ms ease;
 }
 
-.nav-menu a:hover,
+.nav-menu a:hover {
+  color: #7b563d;
+}
+
 .nav-menu a.active {
   color: var(--white);
 }
@@ -302,7 +309,7 @@ p {
   align-content: center;
   flex: 1;
   max-width: 660px;
-  padding: 80px 0 112px;
+  padding: 40px 0 112px;
 }
 
 .hero-copy {
@@ -547,7 +554,7 @@ p {
   padding: 28px;
 }
 
-.info-block + .info-block {
+.info-block+.info-block {
   border-top: 1px solid var(--line);
 }
 
@@ -635,6 +642,22 @@ p {
   font-size: 0.92rem;
 }
 
+.kamilab-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  vertical-align: middle;
+}
+
+.kamilab-logo {
+  display: inline-block;
+  height: 20px;
+  width: auto;
+  border-radius: 3px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
 @media (max-width: 1180px) {
   :root {
     --container: min(100% - 40px, 1120px);
@@ -657,7 +680,7 @@ p {
 
 @media (max-width: 1024px) {
   .section {
-    padding: 80px 0;
+    padding: 40px 0;
   }
 
   .site-header {
@@ -974,6 +997,7 @@ p {
 }
 
 @media (max-width: 420px) {
+
   .section-label,
   .eyebrow,
   .footer-title {
