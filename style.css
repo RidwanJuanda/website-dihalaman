@@ -312,6 +312,20 @@ p {
   padding: 40px 0 112px;
 }
 
+.hero-content .eyebrow {
+  display: inline-block;
+  width: fit-content;
+  background: rgba(255, 253, 250, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--accent-deep);
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+
 .hero-copy {
   max-width: 520px;
   margin-top: 24px;
@@ -1007,7 +1021,7 @@ p {
   .eyebrow,
   .footer-title {
     letter-spacing: 0.14em;
-    color: #d9c0a7;
+    color: #2f221c;
   }
 
   .button {
