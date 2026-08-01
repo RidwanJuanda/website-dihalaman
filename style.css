@@ -70,7 +70,7 @@ button {
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-);
 }
 
 h1,
@@ -320,7 +320,7 @@ p {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  color: var(--accent-deep);
+  color: var(--accent-soft);
   padding: 10px 20px;
   border-radius: 20px;
   margin-bottom: 20px;
@@ -403,8 +403,7 @@ p {
 .gallery-grid {
   display: grid;
   grid-template-columns: 1.15fr 1fr 0.9fr 0.9fr;
-  grid-auto-rows: 138px;
-  gap: 14px;
+  grid-auto-rows: 150px;
 }
 
 .gallery-item {
@@ -412,22 +411,39 @@ p {
   border-radius: 20px;
 }
 
-.gallery-item img {
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 260ms ease;
 }
 
-.gallery-item:hover img {
-  transform: scale(1.04);
+.gallery-item:hover img,
+.gallery-item:hover video {
+  transform: scale(1.2);
 }
 
+/* Mengatur ukuran tinggi item (jumlah baris/row yang dilewati) */
 .gallery-tall {
   grid-row: span 2;
+  /* Ubah angka 2 ini untuk mengubah tinggi (misal: span 3) */
 }
 
+/* Mengatur ukuran lebar item (jumlah kolom yang dilewati) */
 .gallery-wide {
   grid-column: span 2;
+  /* Ubah angka 4 ini untuk mengubah lebar (misal: span 2 atau span 3) */
+}
+
+.gallery-extra-tall {
+  grid-row: span 2;
+  /* Ubah angka 2 ini untuk mengubah tinggi (misal: span 3) */
+}
+
+.gallery-extra-wide {
+  grid-column: span 2;
+  /* Ubah angka 4 ini untuk mengubah lebar (misal: span 2 atau span 3) */
 }
 
 .section-action {
@@ -711,7 +727,7 @@ p {
   }
 
   .hero-overlay {
-    background: 
+    background:
       linear-gradient(180deg, rgba(18, 12, 8, 0.75) 0%, rgba(18, 12, 8, 0.45) 50%, rgba(18, 12, 8, 0.8) 100%),
       linear-gradient(90deg, rgba(18, 12, 8, 0.5) 0%, rgba(18, 12, 8, 0.2) 100%);
   }
@@ -727,7 +743,7 @@ p {
 
   .about-grid {
     grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    gap: 28px;
+    gap: 18px;
   }
 
   .menu-grid,
@@ -921,7 +937,7 @@ p {
   }
 
   .hero-overlay {
-    background: 
+    background:
       linear-gradient(180deg, rgba(18, 12, 8, 0.82) 0%, rgba(18, 12, 8, 0.55) 60%, rgba(18, 12, 8, 0.88) 100%);
   }
 
