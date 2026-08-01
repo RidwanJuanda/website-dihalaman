@@ -3,9 +3,18 @@ const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
 const navLinks = document.querySelectorAll(".nav-menu a");
 const testimonialCards = Array.from(document.querySelectorAll(".testimonial-card"));
-const arrowButtons = document.querySelectorAll(".slider-arrow");
+const arrowButtons = document.querySelectorAll(".testimonial-shell .slider-arrow");
+const galleryOpenButtons = document.querySelectorAll("[data-gallery-open]");
+const galleryModal = document.querySelector("[data-gallery-modal]");
+const gallerySlides = Array.from(document.querySelectorAll(".gallery-modal-slide"));
+const galleryThumbButtons = Array.from(document.querySelectorAll("[data-gallery-thumb]"));
+const galleryPrevButton = document.querySelector("[data-gallery-prev]");
+const galleryNextButton = document.querySelector("[data-gallery-next]");
+const galleryCloseButtons = document.querySelectorAll("[data-gallery-close]");
+const galleryCounter = document.querySelector("[data-gallery-counter]");
 
 let currentTestimonial = 0;
+let currentGallerySlide = 0;
 
 function updateNavbarState() {
   if (!navbar) {
@@ -54,6 +63,57 @@ function goToTestimonial(direction) {
   showTestimonial(currentTestimonial);
 }
 
+function setGallerySlide(index) {
+  if (!gallerySlides.length) {
+    return;
+  }
+
+  currentGallerySlide = (index + gallerySlides.length) % gallerySlides.length;
+
+  gallerySlides.forEach((slide, slideIndex) => {
+    slide.classList.toggle("active", slideIndex === currentGallerySlide);
+  });
+
+  galleryThumbButtons.forEach((button, buttonIndex) => {
+    const isActive = buttonIndex === currentGallerySlide;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-current", isActive ? "true" : "false");
+  });
+
+  if (galleryCounter) {
+    galleryCounter.textContent = `${currentGallerySlide + 1} / ${gallerySlides.length}`;
+  }
+}
+
+function openGalleryModal(startIndex = 0) {
+  if (!galleryModal) {
+    return;
+  }
+
+  setGallerySlide(startIndex);
+  galleryModal.hidden = false;
+  galleryModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeGalleryModal() {
+  if (!galleryModal) {
+    return;
+  }
+
+  galleryModal.hidden = true;
+  galleryModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+function goToGallerySlide(direction) {
+  if (!gallerySlides.length) {
+    return;
+  }
+
+  setGallerySlide(currentGallerySlide + direction);
+}
+
 if (navToggle && navMenu) {
   navToggle.addEventListener("click", () => {
     const isOpen = navMenu.classList.toggle("open");
@@ -76,6 +136,38 @@ arrowButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const direction = button.dataset.direction === "next" ? 1 : -1;
     goToTestimonial(direction);
+  });
+});
+
+galleryOpenButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    const startIndex = Number(button.dataset.galleryStart || 0);
+    openGalleryModal(startIndex);
+  });
+});
+
+galleryThumbButtons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    setGallerySlide(index);
+  });
+});
+
+if (galleryPrevButton) {
+  galleryPrevButton.addEventListener("click", () => {
+    goToGallerySlide(-1);
+  });
+}
+
+if (galleryNextButton) {
+  galleryNextButton.addEventListener("click", () => {
+    goToGallerySlide(1);
+  });
+}
+
+galleryCloseButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    closeGalleryModal();
   });
 });
 
@@ -105,5 +197,23 @@ window.addEventListener("resize", () => {
   if (window.innerWidth > 860) {
     navMenu.classList.remove("open");
     navToggle.setAttribute("aria-expanded", "false");
+  }
+});
+
+window.addEventListener("keydown", (event) => {
+  if (!galleryModal || galleryModal.hidden) {
+    return;
+  }
+
+  if (event.key === "Escape") {
+    closeGalleryModal();
+  }
+
+  if (event.key === "ArrowLeft") {
+    goToGallerySlide(-1);
+  }
+
+  if (event.key === "ArrowRight") {
+    goToGallerySlide(1);
   }
 });
