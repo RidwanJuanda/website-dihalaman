@@ -1716,20 +1716,54 @@ body.modal-open {
 
 #popupVideo {
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: 70vh;
   border-radius: 10px;
 }
 
 .lightbox img {
   display: block;
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: 70vh;
 
   width: auto;
   height: auto;
 
   object-fit: contain;
   border-radius: 12px;
+}
+
+.lightbox-content {
+  width: 90vw;
+  max-width: 900px;
+  max-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* membuat semua child berada di tengah */
+  justify-content: center;
+
+  text-align: center;
+}
+
+#lightbox-title {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+}
+
+#lightbox-description {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.lightbox-info p {
+  color: #ddd;
+  line-height: 1.6;
 }
 
 .close {

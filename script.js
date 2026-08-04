@@ -222,6 +222,8 @@ window.addEventListener("keydown", (event) => {
 const images = document.querySelectorAll(".gallery-img");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
+const lightboxTitle = document.getElementById("lightbox-title");
+const lightboxDescription = document.getElementById("lightbox-description");
 
 const btnPrev = document.querySelector(".prev");
 const btnNext = document.querySelector(".next");
@@ -249,7 +251,8 @@ function showImage() {
 
   lightboxImg.style.display = "block";
   lightboxImg.src = images[currentIndex].src;
-
+  lightboxTitle.textContent = images[currentIndex].dataset.title || "";
+  lightboxDescription.textContent = images[currentIndex].dataset.description || "";
 }
 
 btnClose.addEventListener("click", () => {
@@ -339,6 +342,10 @@ galleryVideos.forEach(video => {
 
     // Ambil source video
     popupVideoSource.src = video.querySelector("source").src;
+
+    // Title & Description
+    lightboxTitle.textContent = video.dataset.title || "";
+    lightboxDescription.textContent = video.dataset.description || "";
 
     popupVideo.load();
     popupVideo.play();
