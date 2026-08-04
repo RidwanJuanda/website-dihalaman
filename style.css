@@ -1708,7 +1708,6 @@ body.modal-open {
 
   opacity: 0;
   visibility: hidden;
-
   transition: .3s;
   z-index: 9999;
 }
@@ -1741,13 +1740,27 @@ body.modal-open {
   max-width: 900px;
   max-height: 90vh;
 
+  overflow-y: auto;
+  /* hanya konten yang bisa di-scroll */
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* membuat semua child berada di tengah */
-  justify-content: center;
 
-  text-align: center;
+  padding: 20px;
+}
+
+.lightbox-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.lightbox-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .3);
+  border-radius: 999px;
+}
+
+.lightbox-content::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 #lightbox-title {
