@@ -665,10 +665,10 @@ body.modal-open {
   position: relative;
   z-index: 1;
   width: min(1040px, 100%);
-  max-height: min(92vh, 920px);
+  max-height: min(92vh, 740px);
   padding: 28px;
   border: 1px solid rgba(255, 253, 250, 0.12);
-  border-radius: 28px;
+  border-radius: 20px;
   background: linear-gradient(180deg, #4A352A, #4A352A);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
   overflow: auto;
@@ -696,15 +696,19 @@ body.modal-open {
   padding-right: 56px;
   margin-bottom: 22px;
   color: var(--white);
+  text-align: center;
+  align-items: center;
 }
 
 .gallery-modal-header .section-label {
   color: var(--accent-);
+  text-align: center;
 }
 
 .gallery-modal-header h3 {
-  max-width: 18ch;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  /* max-width: 20ch; */
+  font-size: clamp(1.0rem, 2vw, 2.4rem);
+  text-align: center;
   line-height: 1.05;
 }
 
@@ -741,7 +745,7 @@ body.modal-open {
 
 .gallery-modal-stage {
   position: relative;
-  min-height: 560px;
+  min-height: 380px;
   border-radius: 24px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.04);
