@@ -153,28 +153,28 @@
 
         <div class="gallery-grid">
           <figure class="gallery-item gallery-tall">
-            <video autoplay loop muted playsinline>
-              <source src="assets/videos/video-coffe-dihalaman.mp4" type="video/mp4">
+            <video autoplay loop muted playsinline class="gallery-video">
+              <source src="assets/videos/video-coffe-dihalaman.mp4" type="video/mp4" />
               Browser Anda tidak mendukung video.
             </video>
           </figure>
           <figure class="gallery-item gallery-tall">
-            <img loading="lazy" src="assets/galeries/press-coffe.png" alt="Sedang membuat kopi" />
+            <img loading="lazy" src="assets/galeries/press-coffe.png" alt="Sedang membuat kopi" class="gallery-img" />
           </figure>
           <figure class="gallery-item gallery-wide gallery-tall">
-            <img loading="lazy" src="assets/galeries/galeri-1.png" alt="Sedang membuat kopi" />
+            <img loading="lazy" src="assets/galeries/galeri-1.png" alt="Sedang membuat kopi" class="gallery-img" />
           </figure>
           <figure class="gallery-item gallery-tall gallery-wide">
-            <img loading="lazy" src="assets/galeries/galeri-2.png" alt="Berkumpul bersama" />
+            <img loading="lazy" src="assets/galeries/galeri-2.png" alt="Berkumpul bersama" class="gallery-img" />
           </figure>
           <figure class="gallery-item gallery-wide gallery-tall">
-            <img loading="lazy" src="assets/galeries/galeri-3.png" alt="Nobar Timnas" />
+            <img loading="lazy" src="assets/galeries/galeri-3.png" alt="Nobar Timnas" class="gallery-img" />
           </figure>
           <figure class="gallery-item gallery-wide gallery-tall">
-            <img loading="lazy" src="assets/galeries/galeri-4.png" alt="Kumpul keluarga" />
+            <img loading="lazy" src="assets/galeries/galeri-4.png" alt="Kumpul keluarga" class="gallery-img" />
           </figure>
           <figure class="gallery-item gallery-wide gallery-tall">
-            <img loading="lazy" src="assets/banner-hero-dihalaman.jpg" alt="Kumpul keluarga" />
+            <img loading="lazy" src="assets/banner-hero-dihalaman.jpg" alt="Kumpul keluarga" class="gallery-img" />
           </figure>
         </div>
 
@@ -183,6 +183,23 @@
         </div>
       </div>
     </section>
+
+    <!-- Popup gallery image -->
+    <div id="lightbox" class="lightbox">
+
+      <span class="close">&times;</span>
+
+      <button class="prev">&#10094;</button>
+
+      <img id="lightbox-img" src="" alt="">
+
+      <video id="popupVideo" controls style="display:none;">
+        <source id="popupVideoSource" src="" type="video/mp4">
+      </video>
+
+      <button class="next">&#10095;</button>
+
+    </div>
 
     <section class="section event-service-section" id="layanan-event" data-section>
       <div class="container">
@@ -216,7 +233,7 @@
               <div class="event-service-actions">
                 <a href="https://wa.me/6285162631402?text=Halo%20Halaman%20Kopi,%20saya%20mau%20menanyakan%20informasi%20dan%20pricelist%20paket%20event%20untuk%20acara%20pernikahan.%20Apakah%20bisa%20minta%20detail%20informasinya%3F%20Terima%20kasih."
                   class="button button-dark">Konsultasi Event &rarr;</a>
-                <a href="#popup-galeri" class="button button-soft" data-gallery-open>Galeri Event &rarr;</a>
+                <a href="#popup-galeri-event" class="button button-soft" data-gallery-open>Galeri Event &rarr;</a>
               </div>
             </div>
 
@@ -293,7 +310,7 @@
       </div>
     </section>
 
-    <div class="gallery-modal" id="popup-galeri" data-gallery-modal hidden aria-hidden="true">
+    <div class="gallery-modal" id="popup-galeri-event" data-gallery-modal hidden aria-hidden="true">
       <div class="gallery-modal-backdrop" data-gallery-close></div>
       <div class="gallery-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title">
         <button class="gallery-modal-close" type="button" aria-label="Tutup popup galeri" data-gallery-close>

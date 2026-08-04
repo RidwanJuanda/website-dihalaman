@@ -217,3 +217,135 @@ window.addEventListener("keydown", (event) => {
     goToGallerySlide(1);
   }
 });
+
+// Gallery Gambar Modal Sendiri
+const images = document.querySelectorAll(".gallery-img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+const btnPrev = document.querySelector(".prev");
+const btnNext = document.querySelector(".next");
+const btnClose = document.querySelector(".close");
+
+let currentIndex = 0;
+
+images.forEach((img, index) => {
+
+  img.addEventListener("click", () => {
+
+    currentIndex = index;
+    showImage();
+
+    lightbox.classList.add("show");
+  });
+
+});
+
+function showImage() {
+
+  popupVideo.pause();
+  popupVideo.currentTime = 0;
+  popupVideo.style.display = "none";
+
+  lightboxImg.style.display = "block";
+  lightboxImg.src = images[currentIndex].src;
+
+}
+
+btnClose.addEventListener("click", () => {
+
+  lightbox.classList.remove("show");
+
+  popupVideo.pause();
+  popupVideo.currentTime = 0;
+  popupVideoSource.src = "";
+  popupVideo.load();
+
+});
+
+lightbox.addEventListener("click", (e) => {
+
+  if (e.target === lightbox) {
+
+    lightbox.classList.remove("show");
+
+    popupVideo.pause();
+    popupVideo.currentTime = 0;
+    popupVideoSource.src = "";
+    popupVideo.load();
+
+  }
+
+});
+
+btnNext.addEventListener("click", (e) => {
+  e.stopPropagation();
+
+  currentIndex++;
+
+  if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+
+  showImage();
+});
+
+btnPrev.addEventListener("click", (e) => {
+  e.stopPropagation();
+
+  currentIndex--;
+
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
+  }
+
+  showImage();
+});
+
+document.addEventListener("keydown", (e) => {
+
+  if (!lightbox.classList.contains("show")) return;
+
+  if (e.key === "Escape") {
+    lightbox.classList.remove("show");
+  }
+
+  if (e.key === "ArrowRight") {
+    btnNext.click();
+  }
+
+  if (e.key === "ArrowLeft") {
+    btnPrev.click();
+  }
+
+});
+
+// Gallery Video Modal Sendiri
+
+const galleryVideos = document.querySelectorAll(".gallery-video");
+
+const popupVideo = document.getElementById("popupVideo");
+const popupVideoSource = document.getElementById("popupVideoSource");
+
+galleryVideos.forEach(video => {
+
+  video.addEventListener("click", () => {
+
+    // Sembunyikan gambar
+    lightboxImg.style.display = "none";
+
+    // Tampilkan video
+    popupVideo.style.display = "block";
+
+    // Ambil source video
+    popupVideoSource.src = video.querySelector("source").src;
+
+    popupVideo.load();
+    popupVideo.play();
+
+    // Tampilkan popup yang sama
+    lightbox.classList.add("show");
+
+  });
+
+});

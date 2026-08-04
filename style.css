@@ -1669,3 +1669,100 @@ body.modal-open {
     min-height: 350px;
   }
 }
+
+
+/* Galleryy Modal Sendiri */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.02);
+}
+
+/* ===================== */
+/* Popup */
+/* ===================== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .9);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: .3s;
+  z-index: 9999;
+}
+
+.lightbox.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#popupVideo {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+}
+
+.lightbox img {
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: rgba(255, 255, 255, .15);
+  color: #fff;
+  border: none;
+
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 30px;
+}
+
+.next {
+  right: 30px;
+}
