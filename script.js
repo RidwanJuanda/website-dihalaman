@@ -356,3 +356,33 @@ galleryVideos.forEach(video => {
   });
 
 });
+
+// Gallery toggle collapse/expand
+const btnToggleGallery = document.getElementById("btn-toggle-gallery");
+const galleryGrid = document.getElementById("gallery-grid");
+const galleryWrapper = document.querySelector(".gallery-grid-wrapper");
+
+if (btnToggleGallery && galleryGrid && galleryWrapper) {
+  btnToggleGallery.addEventListener("click", () => {
+    const isCollapsed = galleryGrid.classList.toggle("collapsed");
+    galleryWrapper.classList.toggle("is-collapsed", isCollapsed);
+
+    if (isCollapsed) {
+      btnToggleGallery.textContent = "Lihat Semua Galeri";
+
+      // Scroll back to gallery section top smoothly
+      const gallerySection = document.getElementById("galeri");
+      if (gallerySection) {
+        const elementPosition = gallerySection.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - 100; // 100px offset for sticky header
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    } else {
+      btnToggleGallery.textContent = "Sembunyikan";
+    }
+  });
+}
